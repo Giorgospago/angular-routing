@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>Pseudo Shop</h1>
+
+            <div *ngFor="let st of styles">
+                <button
+                    (click)="mapStyle = st.style"
+                    class="btn btn-outline-primary"
+                >{{ st.title }}</button>
+            </div>
+        </div>
+        <div class="col-6">
+            <h1>Where we are</h1>
+            <agm-map
+                [latitude]="center.lat"
+                [longitude]="center.lng"
+                [zoom]="mapZoom"
+                [mapTypeId]="'roadmap'"
+                [styles]="mapStyle"
+            >
+                <agm-marker
+                    *ngFor="let dep of departments"
+                    [latitude]="dep.coordinates.lat"
+                    [longitude]="dep.coordinates.lng"
+                >
+                    <agm-info-window>
+                        <h1>{{ dep.title }}</h1>
+                    </agm-info-window>
+                </agm-marker>
+            </agm-map>
+        </div>
+    </div>
+</div>
