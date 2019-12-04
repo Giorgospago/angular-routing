@@ -1,0 +1,11 @@
+.lt {
+    text-decoration: line-through;
+}
+
+.product-image {
+    height: 200px;
+}
+.product-prices {
+    height: 55px;
+    /* border: solid 1px red; */
+}
